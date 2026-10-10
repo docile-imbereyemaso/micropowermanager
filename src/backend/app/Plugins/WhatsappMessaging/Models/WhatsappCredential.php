@@ -13,16 +13,9 @@ use Illuminate\Support\Carbon;
  * @property string|null $phone_number_id
  * @property string|null $business_account_id
  * @property string      $graph_api_version
- * @property bool        $sms_fallback_enabled
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
 class WhatsappCredential extends BaseModel {
     protected $table = 'whatsapp_credentials';
-
-    protected function casts(): array {
-        return [
-            'sms_fallback_enabled' => 'boolean',
-        ];
-    }
 }

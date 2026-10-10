@@ -9,14 +9,12 @@ return new class extends Migration {
         if (!Schema::connection('tenant')->hasTable('whatsapp_credentials')) {
             Schema::connection('tenant')->create('whatsapp_credentials', static function (Blueprint $table) {
                 $table->increments('id');
-                // Encrypted values exceed 255 characters, so secrets must be text.
                 $table->text('access_token');
                 $table->text('app_secret');
                 $table->text('webhook_verify_token');
                 $table->string('phone_number_id')->nullable();
                 $table->string('business_account_id')->nullable();
                 $table->string('graph_api_version')->default('v26.0');
-                $table->boolean('sms_fallback_enabled')->default(true);
                 $table->timestamps();
             });
         }
